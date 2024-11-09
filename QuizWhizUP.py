@@ -42,7 +42,7 @@ def main_menu():
     choice = input("Choose only [1, 2]: ")
     return choice
 
-# Function to select subject
+
 def select_subject():
     print("Select Subject:")
     for i, subject in enumerate(quiz_data.keys(), 1):
@@ -56,7 +56,7 @@ def select_subject():
         print("Invalid choice.")
         return None
 
-# Function to display the difficulty selection menu
+
 def select_difficulty():
     print("Select Difficulty Level")
     print("Each Difficulty have Points, GOOD LUCK TO YOUR QUIZ!!")
@@ -66,15 +66,15 @@ def select_difficulty():
     difficulty = input("Choose only [1, 2, 3]: ")
     return {"1": "Easy", "2": "Medium", "3": "Hard"}.get(difficulty)
 
-# Function to get questions based on subject and difficulty level
+
 def get_questions(subject, difficulty):
     return quiz_data.get(subject, {}).get(difficulty, [])
 
-# Function to administer the quiz
+
 def start_quiz(questions):
-    random.shuffle(questions)  # Randomize question order
+    random.shuffle(questions)  
     score = 0
-    time_limit = 120  # 2 minutes time limit
+    time_limit = 120  
 
     for question in questions:
         print("\n" + question["question"])
@@ -97,23 +97,23 @@ def start_quiz(questions):
 
     return score
 
-# Function to calculate points based on difficulty
+
 def calculate_points(difficulty):
     return {"Easy": 10, "Medium": 20, "Hard": 30}.get(difficulty, 0)
 
-# Main program loop
+
 while True:
     choice = main_menu()
 
     if choice == "1":
         subject = select_subject()
         if not subject:
-            continue  # Retry if subject choice is invalid
+            continue  
 
         difficulty = select_difficulty()
         if not difficulty:
             print("Invalid difficulty level.")
-            continue  # Retry if difficulty choice is invalid
+            continue 
 
         questions = get_questions(subject, difficulty)
 
