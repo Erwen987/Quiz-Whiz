@@ -42,7 +42,7 @@ def main_menu():
     choice = input("Choose only [1, 2]: ")
     return choice
 
-# Function to select subject
+
 def select_subject():
     print("Select Subject:")
     for i, subject in enumerate(quiz_data.keys(), 1):
